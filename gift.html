@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi's Surprise Gift Lucky Draw 🎉</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 20px 0;
+            color: #fff;
+            text-shadow: 3px 3px 7px #000;
+        }
+
+        .gift-box {
+            margin: 30px auto;
+            padding: 30px;
+            max-width: 700px;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px solid #ff6f61;
+        }
+
+        .gift-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .gift-list li {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            animation: fadeIn 1s ease-in-out;
+            color: #ff3d3d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .spin-button {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .spin-button:hover {
+            background-color: #ff3d3d;
+            transform: scale(1.1);
+        }
+
+        .result {
+            font-size: 2rem;
+            margin: 30px 0;
+            color: #333;
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .instruction {
+            font-size: 1.2rem;
+            margin: 30px auto;
+            color: #555;
+        }
+
+        .instruction strong {
+            color: #ff3d3d;
+        }
+
+        .form-button {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .form-button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday, Mahi! 🎂🎁</h1>
+
+    <div class="gift-box">
+        <h2>Your Gift List:</h2>
+        <ul class="gift-list">
+            <li>Smart Watch</li>
+            <li>Earrings</li>
+            <li>Bracelet</li>
+            <li>Payal</li>
+            <li class="any-gift">Any Gift</li>
+        </ul>
+
+        <button class="spin-button" id="spin-button">Start Lucky Draw</button>
+
+        <div class="result" id="result"></div>
+
+        <p class="instruction" id="instruction" style="display: none;">
+            🎉 Take a screenshot of this page showing your gift and attach it to the <strong>Google Form</strong> provided below.
+        </p>
+
+        <a href="https://forms.gle/your-google-form-link" target="_blank" class="form-button" id="form-button" style="display: none;">Go to Google Form</a>
+    </div>
+
+    <script>
+        const gifts = ["Smart Watch", "Earrings", "Bracelet", "Payal", "Any Gift"];
+        const spinButton = document.getElementById('spin-button');
+        const resultDiv = document.getElementById('result');
+        const instruction = document.getElementById('instruction');
+        const formButton = document.getElementById('form-button');
+
+        spinButton.addEventListener('click', () => {
+            resultDiv.textContent = "Spinning...";
+            resultDiv.style.color = "#333";
+            instruction.style.display = "none";
+            formButton.style.display = "none";
+
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * gifts.length);
+                const selectedGift = gifts[randomIndex];
+
+                resultDiv.innerHTML = `🎉 Congratulations, Mahi! Your gift is: <b>${selectedGift}</b>`;
+                resultDiv.style.color = "#ff3d3d";
+
+                instruction.style.display = "block";
+                formButton.style.display = "inline-block";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
